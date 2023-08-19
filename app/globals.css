@@ -1,27 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@layer utilities {
+  .text-heading {
+    @apply text-black font-montserrat text-2xl xs:text-32 font-bold;
   }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  .text-title {
+    @apply text-black font-montserrat text-22 font-semibold;
+  }
+  .text-description {
+    @apply text-cc-gray-300 font-montserrat text-sm font-medium;
+  }
+  .text-placeholder {
+    @apply text-cc-gray-200 font-montserrat text-xs font-normal;
+  }
+  .text-input {
+    @apply text-cc-gray-300 font-montserrat text-xs font-normal;
+  }
+  .text-button {
+    @apply text-white font-montserrat text-sm font-normal;
+  }
 }
