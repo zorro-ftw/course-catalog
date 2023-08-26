@@ -1,10 +1,21 @@
+import NavButton from "./NavButton/NavButton";
+
 const navArray = [
   {
-    iconURL: "",
-    label: "",
+    iconURL: "/assets/icons/home.svg",
+    label: "Home",
+    navigatesTo: "/",
   },
 ];
 
 export default function NavList() {
-  return <></>;
+  const navLinks = navArray.map((nav) => (
+    <NavButton
+      key={`${nav.iconURL}-${nav.label}`}
+      iconURL={nav.iconURL}
+      text={nav.label}
+      navigatesTo={nav.navigatesTo}
+    />
+  ));
+  return <div>{navLinks}</div>;
 }

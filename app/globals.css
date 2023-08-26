@@ -29,4 +29,7 @@
   .cc-text-14-w-nor {
     @apply text-white font-montserrat text-sm font-normal;
   }
+  .cc-text-14-bl-med {
+    @apply text-black font-montserrat text-sm font-medium;
+  }
 }
