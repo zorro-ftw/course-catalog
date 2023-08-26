@@ -16,7 +16,7 @@ export default function PrimaryButton({ type, children, navigateTo, margin }) {
   return (
     <button
       type={type}
-      className={`w-full py-3 text-button bg-cc-orange-200 rounded-md ${margin}`}
+      className={`w-full py-3 cc-text-14-w-nor bg-cc-orange-200 rounded-md ${margin}`}
       onClick={handleClick}
     >
       {children}
