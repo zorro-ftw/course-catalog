@@ -1,7 +1,7 @@
 export default function DashBoard() {
   return (
     <>
-      <div className="w-full h-full"></div>
+      <div className="w-full"></div>
     </>
   );
 }
