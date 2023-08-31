@@ -46,7 +46,7 @@ export default function NavList() {
     <div
       className={`px-10 w-full h-full flex flex-col gap-10 lg:gap-20 justify-between `}
     >
-      <div className="w-full  flex flex-col gap-5">{navLinks}</div>
+      <div className="w-full h-full flex flex-col gap-5">{navLinks}</div>
       <NavButton
         iconURL="/assets/icons/logout.svg"
         text="Logout"

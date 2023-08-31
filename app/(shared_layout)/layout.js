@@ -9,7 +9,7 @@ export default function SidebarLayout({ children }) {
   const [isMinified, setMinify] = useState(false);
   const [arrowDimension, setArrowDimension] = useState(20);
 
-  function handleMinify() {
+  function toggleMinify() {
     setMinify(!isMinified);
   }
 
@@ -21,16 +21,16 @@ export default function SidebarLayout({ children }) {
     }
   }
   return (
-    <main className="flex flex-row py-0 h-fit w-full overflow-x-hidden">
+    <main className="flex flex-row py-0 h-fit min-h-screen w-full overflow-x-hidden">
       {/* Sidebar */}
       <section
         className={`flex flex-col w-full max-w-[270px] min-w-[270px] items-center py-5 bg-cc-pink-300 ${
-          isMinified ? "absolute -left-[270px]" : "left-0"
+          isMinified ? "-ml-[270px]" : "ml-0"
         } transition-all`}
       >
         <div
           className={`relative -right-40 ${
-            arrowDimension === 20 ? "top-5  -mt-5" : "top-6 -mt-6"
+            arrowDimension === 20 ? "top-4  -mt-5" : "top-5 -mt-6"
           }`}
         >
           <Image
@@ -42,7 +42,7 @@ export default function SidebarLayout({ children }) {
             width={arrowDimension}
             height={arrowDimension}
             alt={isMinified ? "arrow-right" : "arrow-left"}
-            onClick={handleMinify}
+            onClick={toggleMinify}
             onMouseEnter={handleArrowHover}
             onMouseLeave={handleArrowHover}
             className="cursor-pointer"
@@ -61,12 +61,13 @@ export default function SidebarLayout({ children }) {
 
       {/* Main view */}
       <section className="w-full">
-        <div className=" w-full h-[60px] flex justify-end pl-8 pr-12 cursor-pointer">
+        <div className=" w-full h-[60px] flex justify-end pl-8 pr-12">
           <Image
             src="/assets/icons/bell.svg"
             width={17}
             height={20}
             alt="bell"
+            className="cursor-pointer"
           />
         </div>
         {children}

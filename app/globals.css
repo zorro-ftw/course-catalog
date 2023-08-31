@@ -8,6 +8,9 @@
   .cc-text-32-bold {
     @apply text-black font-montserrat text-2xl xs:text-32 font-bold;
   }
+  .cc-text-30-bold {
+    @apply text-black font-montserrat text-3xl font-bold;
+  }
   .cc-text-20-bold {
     @apply text-black font-montserrat text-xl font-bold;
   }
