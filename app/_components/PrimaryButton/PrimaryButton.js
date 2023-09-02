@@ -1,7 +1,13 @@
 "use client";
 import { useRouter } from "next/navigation";
 
-export default function PrimaryButton({ type, children, navigateTo, margin }) {
+export default function PrimaryButton({
+  type,
+  children,
+  navigateTo,
+  onClick,
+  additionalClasses,
+}) {
   const router = useRouter();
 
   const handleClick = (event) => {
@@ -16,8 +22,8 @@ export default function PrimaryButton({ type, children, navigateTo, margin }) {
   return (
     <button
       type={type}
-      className={`w-full py-3 cc-text-14-w-nor bg-cc-orange-200 rounded-md ${margin}`}
-      onClick={handleClick}
+      className={`w-full py-3  bg-cc-orange-200 rounded-md ${additionalClasses}`}
+      onClick={onClick ? onClick : handleClick}
     >
       {children}
     </button>

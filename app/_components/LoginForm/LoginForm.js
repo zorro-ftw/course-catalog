@@ -7,7 +7,11 @@ export default function LoginForm() {
       <div className="flex flex-col gap-5">
         <InputField type="email" label="Email" />
         <InputField type="password" label="Password" />
-        <PrimaryButton type="submit" margin="mt-2" navigateTo="/dashboard">
+        <PrimaryButton
+          type="submit"
+          additionalClasses="mt-2 cc-text-14-w-nor"
+          navigateTo="/dashboard"
+        >
           SIGN IN
         </PrimaryButton>
       </div>

@@ -32,7 +32,7 @@ export default function DashBoard() {
     },
   ];
 
-  const cardsDisplay = cards.map((c) => <InfoCard key={c} payload={c} />);
+  const cardsDisplay = cards.map((c) => <InfoCard key={c.icon} payload={c} />);
 
   return (
     <>

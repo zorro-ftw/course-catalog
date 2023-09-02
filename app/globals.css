@@ -17,8 +17,14 @@
   .cc-text-17-bold {
     @apply text-black font-montserrat text-17 font-bold;
   }
+  .cc-text-22-bold {
+    @apply text-black font-montserrat text-22 font-bold;
+  }
   .cc-text-22-semibold {
     @apply text-black font-montserrat text-22 font-semibold;
+  }
+  .cc-text-14-nor {
+    @apply font-montserrat text-sm font-normal;
   }
   .cc-text-14-gr-med {
     @apply text-cc-gray-300 font-montserrat text-sm font-medium;
@@ -29,10 +35,16 @@
   .cc-text-12-gr-nor-300 {
     @apply text-cc-gray-300 font-montserrat text-xs font-normal;
   }
+  .cc-text-12-gr-bold-700 {
+    @apply text-cc-gray-700 font-montserrat text-xs font-bold;
+  }
   .cc-text-14-w-nor {
     @apply text-white font-montserrat text-sm font-normal;
   }
   .cc-text-14-bl-med {
     @apply text-black font-montserrat text-sm font-medium;
+  }
+  .cc-text-14-w-med {
+    @apply text-white font-montserrat text-sm font-medium;
   }
 }
