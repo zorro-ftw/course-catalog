@@ -50,7 +50,10 @@ export default function SidebarLayout({ children }) {
         </div>
         <Brand variant="dashboard" />
         <div className=" mt-6 mb-10 lg:mt-14 lg:mb-20 flex flex-col items-center">
-          <Avatar imageURL="/assets/avatar.png" />
+          <Avatar
+            imageURL="/assets/avatar.png"
+            additionalClasses="w-32  h-32 rounded-full"
+          />
           <span className="cc-text-17-bold mt-5">John Doe</span>
           <span className=" font-montserrat text-sm text-cc-orange-200 font-medium mt-2.5">
             Admin

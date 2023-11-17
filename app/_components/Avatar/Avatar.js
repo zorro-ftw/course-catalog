@@ -1,13 +1,16 @@
-export default function Avatar({ imageURL, additionalClasses }) {
+export default function Avatar({
+  imageURL,
+  additionalClasses,
+  backgroundPositioning = "center  -15px",
+  backgroundSizing = "225px 150px",
+}) {
   return (
     <div
-      className={`w-32  h-32 rounded-full ${
-        additionalClasses ? additionalClasses : ""
-      }`}
+      className={` ${additionalClasses ? additionalClasses : ""}`}
       style={{
         backgroundImage: `url(${imageURL})`,
-        backgroundPosition: "center  -15px",
-        backgroundSize: "225px 150px",
+        backgroundPosition: backgroundPositioning,
+        backgroundSize: backgroundSizing,
       }}
     ></div>
   );
