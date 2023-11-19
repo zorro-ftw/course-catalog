@@ -3,11 +3,30 @@ import Image from "next/image";
 import Avatar from "../_components/Avatar/Avatar";
 import Brand from "../_components/Brand/Brand";
 import NavList from "../_components/NavList/NavList";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function SidebarLayout({ children }) {
   const [isMinified, setMinify] = useState(false);
   const [arrowDimension, setArrowDimension] = useState(20);
+
+  // Effect to update minification based on window width
+  useEffect(() => {
+    function handleResize() {
+      // Update minification based on window width
+      setMinify(window.innerWidth < 1024);
+    }
+
+    // Set initial minification state
+    handleResize();
+
+    // Listen for window resize events
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup event listener on component unmount
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   function toggleMinify() {
     setMinify(!isMinified);

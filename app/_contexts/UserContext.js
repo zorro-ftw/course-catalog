@@ -12,12 +12,14 @@ export function UserProvider({ children }) {
     studentsPerPage: 6,
     currentPage: 1,
     totalPages: 0,
+    firstDisplayedItemIndex: 0,
+    lastDisplayedItemIndex: 0,
   });
 
   const fetchUsers = async () => {
     try {
       setLoading(true);
-      const response = await apiService.get("/users?limit=100");
+      const response = await apiService.get("/users?limit=0");
       setUsers(response.data.users);
       setFilteredUsers(response.data.users);
 
@@ -26,6 +28,8 @@ export function UserProvider({ children }) {
       newPaginationParams.totalPages = Math.ceil(
         response.data.users.length / newPaginationParams.studentsPerPage
       );
+      newPaginationParams.firstDisplayedItemIndex = 1;
+      newPaginationParams.lastDisplayedItemIndex = 6;
       setPaginationParams(newPaginationParams);
     } catch (error) {
       console.error("Error fetching users:", error);
@@ -39,26 +43,47 @@ export function UserProvider({ children }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  useEffect(() => {
+    const newPaginationParams = { ...paginationParams };
+    if (newPaginationParams.currentPage === 1) {
+      newPaginationParams.firstDisplayedItemIndex = 1;
+    } else {
+      newPaginationParams.firstDisplayedItemIndex =
+        (newPaginationParams.currentPage - 1) *
+          newPaginationParams.studentsPerPage +
+        1;
+    }
+
+    newPaginationParams.lastDisplayedItemIndex =
+      newPaginationParams.currentPage * newPaginationParams.studentsPerPage <=
+      filteredUsers.length
+        ? newPaginationParams.currentPage * newPaginationParams.studentsPerPage
+        : filteredUsers.length;
+
+    setPaginationParams(newPaginationParams);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [
+    filteredUsers,
+    paginationParams.currentPage,
+    paginationParams.studentsPerPage,
+  ]);
+
   // Filter student list
   const filterUsers = (searchInput) => {
-    setFilteredUsers(
-      users.filter(
-        (u) =>
-          u.firstName.includes(searchInput) || u.lastName.includes(searchInput)
-      )
+    const newFilteredUsers = users.filter(
+      (u) =>
+        u.firstName.toLowerCase().includes(searchInput.toLowerCase()) ||
+        u.lastName.toLowerCase().includes(searchInput.toLowerCase())
     );
+    const newPaginationParams = { ...paginationParams };
+    newPaginationParams.currentPage = 1;
+    setFilteredUsers(newFilteredUsers);
+    setPaginationParams(newPaginationParams);
   };
 
   const updateStudentsPerPage = (num) => {
     const newPaginationParams = { ...paginationParams };
     newPaginationParams.studentsPerPage = num;
-    setPaginationParams(newPaginationParams);
-  };
-
-  // Directly navigate to a page
-  const goToPage = (pageNo) => {
-    const newPaginationParams = { ...paginationParams };
-    newPaginationParams.currentPage = pageNo;
     setPaginationParams(newPaginationParams);
   };
 
@@ -86,7 +111,6 @@ export function UserProvider({ children }) {
     loading,
     filterUsers,
     paginationParams,
-    goToPage,
     goToPreviousPage,
     goToNextPage,
     updateStudentsPerPage,

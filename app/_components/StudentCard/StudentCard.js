@@ -16,22 +16,22 @@ export default function StudentCard({ student }) {
       </td>
 
       {/** Name */}
-      <td>{student.firstName + " " + student.lastName}</td>
+      <td className="pr-2">{student.firstName + " " + student.lastName}</td>
 
       {/** Email */}
-      <td>{student.email}</td>
+      <td className="pr-2">{student.email}</td>
 
       {/** Phone */}
-      <td>{student.phone}</td>
+      <td className="pr-2">{student.phone}</td>
 
       {/** Website */}
-      <td>{student.domain}</td>
+      <td className="pr-2">{student.domain}</td>
 
       {/** Company */}
-      <td>{student.company.name}</td>
+      <td className="pr-2">{student.company.name}</td>
 
       {/** Edit */}
-      <td>
+      <td className="pr-2">
         <PenIcon additionalClasses="w-5 h-5 text-cc-orange-200 cursor-pointer" />
       </td>
 

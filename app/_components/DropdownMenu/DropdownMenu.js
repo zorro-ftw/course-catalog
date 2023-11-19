@@ -7,7 +7,7 @@ export default function DropdownMenu({ options }) {
   const { paginationParams, updateStudentsPerPage } = useContext(UserContext);
 
   return (
-    <Menu as="div" className="text-end">
+    <Menu as="div" className="text-end cc-text-14-nor">
       <Menu.Button as="button" className="flex gap-1 items-center px-3">
         <span>{paginationParams.studentsPerPage}</span>
         <DropdownIcon additionalClasses="text-cc-gray-500 w-3 h-3" />
