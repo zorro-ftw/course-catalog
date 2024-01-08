@@ -15,7 +15,6 @@
 <img src="https://github.com/zorro-ftw/course-catalog/assets/86876940/8224be3f-233f-4954-b7a4-de20f6070444" alt="project-screenshot" width="400" height="257/">
 
   
-  
 <h2>🧐 Features</h2>
 
 Here're some of the project's best features:
@@ -50,5 +49,8 @@ Technologies used in the project:
 
 *   Next.js
 *   Tailwind
+*   axios
+*   Context API
+*   eslint
 
   
